@@ -1,16 +1,1 @@
-{
-  "../src/layout/Layout.js -> components/Portfolio": {
-    "id": 6524,
-    "files": [
-      "static/chunks/391.c6eeca109a092ca1.js",
-      "static/chunks/524.f8526be9fb7a3d12.js"
-    ]
-  },
-  "index.js -> components/Portfolio": {
-    "id": 6524,
-    "files": [
-      "static/chunks/391.c6eeca109a092ca1.js",
-      "static/chunks/524.f8526be9fb7a3d12.js"
-    ]
-  }
-}
+{}
