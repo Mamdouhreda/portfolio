@@ -10,7 +10,7 @@ const detailData = [
     thumbnail: "assets/img/portfolio/popup/1.jpg",
     title: "URL shortening API landing page",
     text: [
-      "I utilized HTML, CSS, JavaScript, and an API to create a responsive web application that offers a URL shortening service. The design of the application adapts to different screen sizes, providing an optimal layout and user experience across various devices. Users can enter any valid URL into the input field and instantly shorten it with a single click.",
+      "I utilised HTML, CSS, JavaScript, and an API to create a responsive web application that offers a URL shortening service. The design of the application adapts to different screen sizes, providing an optimal layout and user experience across various devices. Users can enter any valid URL into the input field and instantly shorten it with a single click.",
       "The application maintains a list of shortened links, which remains accessible even after the browser is refreshed. To enhance usability, I implemented a feature that allows users to easily copy the shortened link to their clipboard with a simple click. Additionally, I integrated error handling functionality to ensure a seamless user experience. If the form is submitted with an empty input field, an error message is displayed, notifying the user to provide a valid URL for shortening."
     ],
     client: "My Project",
@@ -46,7 +46,7 @@ const detailData = [
     thumbnail: "assets/img/portfolio/popup/2.jpg",
     title: "Job listings with filtering",
     text: [
-    "I opted to utilize a local data.json file to retrieve the job listings and dynamically render the content on the website. By leveraging a JavaScript library/framework like React, Vue, or Svelte, I was able to create an interactive user interface that offers a responsive layout, ensuring an optimal viewing experience on various devices. Interactive elements on the page, such as buttons and links, have hover states to provide visual feedback to the users.",
+    "I opted to utilise a local data.json file to retrieve the job listings and dynamically render the content on the website. By leveraging a JavaScript library/framework like React, Vue, or Svelte, I was able to create an interactive user interface that offers a responsive layout, ensuring an optimal viewing experience on various devices. Interactive elements on the page, such as buttons and links, have hover states to provide visual feedback to the users.",
     "To enhance the functionality of the job listings, I implemented a filtering feature that allows users to refine their search based on selected categories. This empowers users to narrow down the listings and find relevant job opportunities more efficiently. Overall, this approach not only provides a seamless user experience but also serves as a great opportunity to practice and showcase proficiency in a JavaScript library/framework."
     ],
     client: "My Project",
