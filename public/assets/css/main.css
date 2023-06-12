@@ -4095,6 +4095,7 @@ body.dark .loader_line:after {
 }
 
 .text-black {
+  text-transform: capitalize;
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
