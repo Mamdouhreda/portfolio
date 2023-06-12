@@ -23,7 +23,7 @@ const initialState = {
   menus: [
     { id: 1, name: "Home", href: "home" },
     { id: 2, name: "about", href: "about" },
-    { id: 3, name: "service", href: "service" },
+    { id: 3, name: "What I Do", href: "service" },
     { id: 4, name: "portfolio", href: "portfolio" },
     { id: 6, name: "contact", href: "contact" },
   ],
@@ -105,10 +105,17 @@ const TokyoState = ({ children }) => {
   const { nav, animation, modal, serviceModal, portfolioDetailsModal, menus } =
     state;
 
+  const updatedMenus = menus.map((menu) => {
+    if (menu.name === "service") {
+      return { ...menu, name: "What I Do" };
+    }
+    return menu;
+  });
+
   return (
     <TokyoContext.Provider
       value={{
-        menus,
+        menus: updatedMenus,
         nav,
         navChange,
         animation,
