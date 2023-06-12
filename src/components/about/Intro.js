@@ -14,9 +14,9 @@ const Intro = () => {
         Greetings! My name is Mamdouh, and I am a web developer with expertise in HTML, CSS, JavaScript, and React. With a strong background in building websites, I have successfully worked as a freelancer on platforms like Upwork, delivering exceptional websites that help clients solve their problems and achieve their goals.
         </p>
         <p>
-        I take pride in my ability to transform ideas into fully functional platforms. From concept to completion, I am dedicated to creating websites with a unique, outstanding, and contemporary look-and-feel. I go above and beyond to ensure that the websites I build are not only visually appealing but also optimized for performance and longevity.
-        With my in-depth understanding of web mechanics, I excel at integrating complex functionalities that require minimal maintenance. The websites I develop have the capability to run seamlessly for years, providing clients with a hassle-free experience.
-        I am passionate about delivering high-quality solutions that exceed client expectations. 
+        I take pride in my ability to transform ideas into fully functional platforms. From concept to completion, I am dedicated to creating websites with a unique, outstanding, and contemporary look and feel. I go above and beyond to ensure that the websites I build are not only visually appealing but also optimised for performance and longevity.
+        With my in-depth understanding of web mechanics, I excel at integrating complex functionalities that require minimal maintenance. The websites I develop have the capability to run seamlessly for years, providing clients with a hassle free experience.
+        I am passionate about delivering high quality solutions that exceed client expectations. 
         </p>
       </div>
       <div className="tokyo_tm_short_info w-full h-auto clear-both float-left flex mb-[40px]">
@@ -64,7 +64,7 @@ const Intro = () => {
                 <span className="min-w-[100px] float-left mr-[10px] font-bold text-black">
                   Study:
                 </span>
-                <span>Univercity of Alexandria</span>
+                <span>University of Alexandria</span>
               </li>
               <li className="m-0">
                 <span className="min-w-[100px] float-left mr-[10px] font-bold text-black">
