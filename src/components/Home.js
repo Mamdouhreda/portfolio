@@ -11,6 +11,11 @@ const socialIcon = [
     iconName: "icon-github-squared",
     link: "https://github.com/Mamdouhreda",
   },
+  {
+    id: 3,
+    iconName: "icon-youtube-squared",
+    link: "https://youtube.com/channel/UCJJ1ZFTNxk2F12hj6UvydQA",
+  },
 ];
 
 const Home = () => {
