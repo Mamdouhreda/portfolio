@@ -16,6 +16,11 @@ const socialIcon = [
     iconName: "icon-youtube-squared",
     link: "https://youtube.com/channel/UCJJ1ZFTNxk2F12hj6UvydQA",
   },
+  {
+    id: 4,
+    iconName: "icon-linkedin-squared",
+    link: "https://www.linkedin.com/in/MamdouhEl/",
+  },
 ];
 
 const Home = () => {
