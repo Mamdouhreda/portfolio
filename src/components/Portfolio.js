@@ -17,29 +17,10 @@ const detailData = [
     date: "October 22, 2021",
     category: "Detail",
     share: [
-      {
-        id: 1,
-        iconName: "icon-facebook-squared",
-        link: "https://www.facebook.com/",
-      },
-      {
-        id: 2,
-        iconName: "icon-twitter-squared",
-        link: "https://twitter.com/intent/tweet",
-      },
-      {
-        id: 3,
-        iconName: "icon-behance-squared",
-        link: "https://www.behance.net/",
-      },
-      {
-        id: 4,
-        iconName: "icon-linkedin-squared",
-        link: "https://www.linkedin.com/",
-      },
     ],
-    bigImage: "",
-    images: [],
+    bigImage: "assets/img/portfolio/1.jpg",
+    images: ["assets/img/portfolio/2.jpg", "assets/img/portfolio/3.jpg"],
+
   },
   {
     id: 2,
@@ -53,26 +34,6 @@ const detailData = [
     date: "January 21, 2022",
     category: "Detail",
     share: [
-      {
-        id: 1,
-        iconName: "icon-facebook-squared",
-        link: "https://www.facebook.com/",
-      },
-      {
-        id: 2,
-        iconName: "icon-twitter-squared",
-        link: "https://twitter.com/",
-      },
-      {
-        id: 3,
-        iconName: "icon-behance-squared",
-        link: "https://www.behance.net/",
-      },
-      {
-        id: 4,
-        iconName: "icon-linkedin-squared",
-        link: "https://www.linkedin.com/",
-      },
     ],
     bigImage: "",
     images: [],
@@ -89,26 +50,6 @@ const detailData = [
     date: "January 21, 2014",
     category: "Mobile Application HTML5",
     share: [
-      {
-        id: 1,
-        iconName: "icon-facebook-squared",
-        link: "https://www.facebook.com/",
-      },
-      {
-        id: 2,
-        iconName: "icon-twitter-squared",
-        link: "https://twitter.com/",
-      },
-      {
-        id: 3,
-        iconName: "icon-behance-squared",
-        link: "https://www.behance.net/",
-      },
-      {
-        id: 4,
-        iconName: "icon-linkedin-squared",
-        link: "https://www.linkedin.com/",
-      },
     ],
     bigImage: "",
     images: [],
@@ -125,26 +66,6 @@ const detailData = [
     date: "January 21, 2022",
     category: "Detail",
     share: [
-      {
-        id: 1,
-        iconName: "icon-facebook-squared",
-        link: "https://www.facebook.com/",
-      },
-      {
-        id: 2,
-        iconName: "icon-twitter-squared",
-        link: "https://twitter.com/",
-      },
-      {
-        id: 3,
-        iconName: "icon-behance-squared",
-        link: "https://www.behance.net/",
-      },
-      {
-        id: 4,
-        iconName: "icon-linkedin-squared",
-        link: "https://www.linkedin.com/",
-      },
     ],
     bigImage: "",
     images: [],
@@ -161,29 +82,9 @@ const detailData = [
       "I am proud of this project as it showcases my ability to integrate external APIs, handle data retrieval and rendering, and deliver a visually appealing and responsive user interface. To explore this project and others in my portfolio, feel free to visit my website.",
     ],
     client: "My Project",
-    date: "Auguest 1, 2022",
-    category: "Detail",
+    date: "June 1, 2023",
+    category: "React",
     share: [
-      {
-        id: 1,
-        iconName: "icon-facebook-squared",
-        link: "https://www.facebook.com/",
-      },
-      {
-        id: 2,
-        iconName: "icon-twitter-squared",
-        link: "https://twitter.com/",
-      },
-      {
-        id: 3,
-        iconName: "icon-behance-squared",
-        link: "https://www.behance.net/",
-      },
-      {
-        id: 4,
-        iconName: "icon-linkedin-squared",
-        link: "https://www.linkedin.com/",
-      },
     ],
     bigImage: "",
     images: [],
@@ -204,30 +105,44 @@ const detailData = [
     date: "Auguest 1, 2022",
     category: "Detail",
     share: [
-      {
-        id: 1,
-        iconName: "icon-facebook-squared",
-        link: "https://www.facebook.com/",
-      },
-      {
-        id: 2,
-        iconName: "icon-twitter-squared",
-        link: "https://twitter.com/",
-      },
-      {
-        id: 3,
-        iconName: "icon-behance-squared",
-        link: "https://www.behance.net/",
-      },
-      {
-        id: 4,
-        iconName: "icon-linkedin-squared",
-        link: "https://www.linkedin.com/",
-      },
     ],
     bigImage: "",
     images: [],
   },
+  {
+    id: 7,
+    thumbnail: "assets/img/portfolio/popup/weather_pop.jpg",
+    title: "Weather Web App",
+    text: [
+      "🌤️ Excited to share my weather web app built with React and Tailwind CSS! 🌤️",
+      "I've developed a simple and intuitive weather web application using React and styled it with Tailwind CSS. This combination allows for a seamless user experience and beautiful design. The app allows users to search for the weather information of any city worldwide. It retrieves real-time weather data from the OpenWeatherMap API and displays key information such as temperature, weather description, humidity, wind speed, and local time.",
+      "🚀 Features:",
+      "Search for weather data of any city",
+      "Display current temperature and weather details",
+      "Provide information on humidity, wind speed, and local time",
+      "Responsive design for a seamless experience on any device",
+      "I had a great time working on this project, leveraging the power of React and the convenience of Tailwind CSS. I'm excited to see how it can be further developed and improved. I encourage fellow developers to check it out, contribute, and make it even better!",
+    ],
+    client: "My Project",
+    date: "August 1, 2022",
+    category: "React",
+    share: [
+      {
+        id: 1,
+        iconName: "icon-link-1",
+        link: "https://dainty-blini-03751a.netlify.app/",
+      },
+      {
+        id: 2,
+        iconName: "icon-github-squared",
+        link: "https://github.com/Mamdouhreda/weather",
+      },
+      
+    ],
+    bigImage: "",
+    images: [],
+  }  
+  
 ];
 const Portfolio = () => {
   const isotope = useRef();
@@ -312,6 +227,34 @@ const Portfolio = () => {
           </div>
           <div className="list_wrapper w-full h-auto clear-both float-left">
             <ul className="portfolio_list gallery_zoom ml-[-40px] list-none">
+            <li className="react mb-[40px] float-left w-1/2 pl-[40px] item__">
+                <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
+                  <div
+                    className="entry tokyo_tm_portfolio_animation_wrap"
+                    data-title="Weather Web App"
+                    data-category="check out the weather"
+                  >
+                    <a
+                      className="popup_info"
+                      href="#"
+                      onClick={() => {
+                        setPortfolioDetailsModal(detailData[6]);
+                        modalToggle(true);
+                      }}
+                    >
+                      <img
+                        className="opacity-0 min-w-full"
+                        src="assets/img/thumbs/1-1.jpg"
+                        alt="image"
+                      />
+                      <div
+                        className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
+                        data-img-url="assets/img/portfolio/weather.jpg"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </li>
             <li className="webApp mb-[40px] float-left w-1/2 pl-[40px] item__">
                 <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
                   <div
