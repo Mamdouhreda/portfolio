@@ -227,7 +227,7 @@ const Portfolio = () => {
           </div>
           <div className="list_wrapper w-full h-auto clear-both float-left">
             <ul className="portfolio_list gallery_zoom ml-[-40px] list-none">
-            <li className="react mb-[40px] float-left w-1/2 pl-[40px] item__">
+            <li className="react webApp mb-[40px] float-left w-1/2 pl-[40px] item__">
                 <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
                   <div
                     className="entry tokyo_tm_portfolio_animation_wrap"
