@@ -1,9 +1,13 @@
 import { TokyoContext } from "@/src/Context";
 import { useContext } from "react";
 import ModalContainer from "./ModalContainer";
+
 const DetailsModal = () => {
   const { portfolioDetailsModal, setPortfolioDetailsModal } =
     useContext(TokyoContext);
+
+  const hasShareData = portfolioDetailsModal.share.length > 0;
+
   return (
     <ModalContainer nullValue={setPortfolioDetailsModal}>
       <div className="popup_details">
@@ -27,7 +31,7 @@ const DetailsModal = () => {
             {portfolioDetailsModal.text.map((text, i) => (
               <p
                 className={
-                  portfolioDetailsModal.text.length - 1 == i ? "" : "mb-[20px]"
+                  portfolioDetailsModal.text.length - 1 === i ? "" : "mb-[20px]"
                 }
                 key={i}
               >
@@ -62,13 +66,28 @@ const DetailsModal = () => {
                 </span>
                 <span>{portfolioDetailsModal.date}</span>
               </li>
-             
+              {hasShareData && (
+                <li className="w-full float-left">
+                  <span className="first font-bold block text-black mb-[3px]">
+                    Links
+                  </span>
+                  <ul className="share list-none relative top-[7px] ">
+                    {portfolioDetailsModal.share.map((social) => (
+                      <li className="mr-[10px] inline-block" key={social.id}>
+                        <a className="text-black text-[18px]" href={social.link}>
+                          <i className={social.iconName} />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              )}
             </ul>
           </div>
         </div>
-      
       </div>
     </ModalContainer>
   );
 };
+
 export default DetailsModal;
