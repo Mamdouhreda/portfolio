@@ -3,8 +3,8 @@ import SectionContainer from "./SectionContainer";
 const socialIcon = [
   {
     id: 1,
-    iconName: "icon-twitter-squared",
-    link: "https://twitter.com/MamdohReda",
+    iconName: "icon-linkedin-squared",
+    link: "https://www.linkedin.com/in/MamdouhEl/",
   },
   {
     id: 2,
@@ -18,8 +18,8 @@ const socialIcon = [
   },
   {
     id: 4,
-    iconName: "icon-linkedin-squared",
-    link: "https://www.linkedin.com/in/MamdouhEl/",
+    iconName: "icon-twitter-squared",
+    link: "https://twitter.com/MamdohReda",
   },
 ];
 
