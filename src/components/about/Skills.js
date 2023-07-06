@@ -1,10 +1,10 @@
 const programming = [
-  { id: 1, name: "HTML", value: 75 },
+  { id: 1, name: "HTML", value: 85 },
   { id: 2, name: "CSS", value: 80 },
-  { id: 3, name: "JavaScript", value: 70 },
-  { id: 4, name: "React", value: 60 },
+  { id: 3, name: "JavaScript", value: 80 },
+  { id: 4, name: "React", value: 70 },
+  { id: 6, name: "Tailwind CSS", value: 80 },
   { id: 5, name: "BootStrap", value: 75 },
-  { id: 6, name: "Tailwindcss", value: 60 },
   { id: 6, name: "Final Cut Pro", value: 90 },
 ];
 const language = [
