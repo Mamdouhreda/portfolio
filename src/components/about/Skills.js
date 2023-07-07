@@ -5,7 +5,8 @@ const programming = [
   { id: 4, name: "React", value: 70 },
   { id: 6, name: "Tailwind CSS", value: 80 },
   { id: 5, name: "BootStrap", value: 75 },
-  { id: 6, name: "Final Cut Pro", value: 90 },
+  { id: 6, name: "TypeScript", value: 75 },
+  { id: 7, name: "Final Cut Pro", value: 90 },
 ];
 const language = [
   { id: 1, name: "English", value: 100 },
