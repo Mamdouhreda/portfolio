@@ -39,10 +39,7 @@ const Portfolio = () => {
         <div className="tokyo_tm_portfolio w-full h-auto clear-both float-left px-0 pt-[100px] pb-[40px]">
           <div className="tokyo_tm_title w-full h-auto clear-both float-left mb-[62px]">
             <div className="title_flex w-full h-auto clear-both flex justify-between items-end">
-              <SectionTitle
-                pageName={"Projects"}
-                title={"Creative Projects"}
-              />
+              <SectionTitle pageName={"Projects"} title={"Creative Projects"} />
               <div className="portfolio_filter">
                 <ul className="list-none">
                   <li className="mr-[25px] inline-block">
@@ -67,18 +64,18 @@ const Portfolio = () => {
                     <a
                       className="text-[#767676] inline-block font-medium font-montserrat transition-all duration-300 hover:text-black"
                       href="#"
-                      onClick={handleFilterKeyChange("mobile")}
+                      onClick={handleFilterKeyChange("webApp")}
                     >
-                      HTML5 App
+                      Web App
                     </a>
                   </li>
                   <li className="mr-[25px] inline-block">
                     <a
                       className="text-[#767676] inline-block font-medium font-montserrat transition-all duration-300 hover:text-black"
                       href="#"
-                      onClick={handleFilterKeyChange("webApp")}
+                      onClick={handleFilterKeyChange("mobile")}
                     >
-                      Web App
+                      HTML5 App
                     </a>
                   </li>
                   
@@ -88,7 +85,7 @@ const Portfolio = () => {
           </div>
           <div className="list_wrapper w-full h-auto clear-both float-left">
             <ul className="portfolio_list gallery_zoom ml-[-40px] list-none">
-            <li className="react webApp mb-[40px] float-left w-1/2 pl-[40px] item__">
+              <li className="react webApp mb-[40px] float-left w-1/2 pl-[40px] item__">
                 <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
                   <div
                     className="entry tokyo_tm_portfolio_animation_wrap"
@@ -111,6 +108,34 @@ const Portfolio = () => {
                       <div
                         className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
                         data-img-url="assets/img/portfolio/netflix.jpg"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li className="webApp mb-[40px] float-left w-1/2 pl-[40px] item__">
+                <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
+                  <div
+                    className="entry tokyo_tm_portfolio_animation_wrap"
+                    data-title="World Wonders & UK City Search"
+                    data-category="Check out the wonders"
+                  >
+                    <a
+                      className="popup_info"
+                      href="#"
+                      onClick={() => {
+                        setPortfolioDetailsModal(detailData[0]);
+                        modalToggle(true);
+                      }}
+                    >
+                      <img
+                        className="opacity-0 min-w-full"
+                        src="assets/img/thumbs/1-1.jpg"
+                        alt="image"
+                      />
+                      <div
+                        className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
+                        data-img-url="assets/img/portfolio/1.jpg"
                       />
                     </a>
                   </div>
@@ -144,7 +169,7 @@ const Portfolio = () => {
                   </div>
                 </div>
               </li>
-            <li className="react webApp mb-[40px] float-left w-1/2 pl-[40px] item__">
+              <li className="react webApp mb-[40px] float-left w-1/2 pl-[40px] item__">
                 <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
                   <div
                     className="entry tokyo_tm_portfolio_animation_wrap"
@@ -172,40 +197,13 @@ const Portfolio = () => {
                   </div>
                 </div>
               </li>
-            <li className="webApp mb-[40px] float-left w-1/2 pl-[40px] item__">
-                <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
-                  <div
-                    className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="URL shortening API landing page"
-                    data-category="Simplify, Share, and Track"
-                  >
-                    <a
-                      className="popup_info"
-                      href="#"
-                      onClick={() => {
-                        setPortfolioDetailsModal(detailData[0]);
-                        modalToggle(true);
-                      }}
-                    >
-                      <img
-                        className="opacity-0 min-w-full"
-                        src="assets/img/thumbs/1-1.jpg"
-                        alt="image"
-                      />
-                      <div
-                        className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                        data-img-url="assets/img/portfolio/1.jpg"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </li>
+             
               <li className="webApp mb-[40px] float-left w-1/2 pl-[40px] item__">
                 <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
                   <div
                     className="entry tokyo_tm_portfolio_animation_wrap"
                     data-title="Job listings with filtering"
-                    data-category= "Find Your Perfect Job Smart Custom Filters"
+                    data-category="Find Your Perfect Job Smart Custom Filters"
                   >
                     <a
                       className="popup_info"
@@ -228,7 +226,7 @@ const Portfolio = () => {
                   </div>
                 </div>
               </li>
-              
+
               <li className="webApp mb-[40px] float-left w-1/2 pl-[40px] item__">
                 <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
                   <div
