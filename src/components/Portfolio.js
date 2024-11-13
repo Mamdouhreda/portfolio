@@ -1,38 +1,93 @@
 import Isotope from "isotope-layout";
 import { useContext, useEffect, useRef, useState } from "react";
+import { gql, useQuery } from "@apollo/client";
 import { TokyoContext } from "../Context";
 import { tokyo } from "../utils";
 import SectionContainer from "./SectionContainer";
 import SectionTitle from "./SectionTitle";
-import detailData from "./DetailData";
+
+const GET_PROJECTS = gql`
+  query NewQuery {
+    projects {
+      nodes {
+        content
+        title
+        slug
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
+        projects {
+          category
+          client
+          date
+          section
+          subheading
+          headImage {
+            node {
+              sourceUrl
+            }
+          }
+          social {
+            title
+            url
+          }
+          social2 {
+            title
+            url
+          }
+          social3 {
+            title
+            url
+          }
+        }
+      }
+    }
+  }
+`;
+
 const Portfolio = () => {
   const isotope = useRef();
   const [filterKey, setFilterKey] = useState("*");
+  const { setPortfolioDetailsModal, modalToggle } = useContext(TokyoContext);
+
+  // Fetch data using the useQuery hook
+  const { loading, error, data } = useQuery(GET_PROJECTS);
+
   useEffect(() => {
-    const data = document.querySelector(".item__");
-    if (data.length !== 0) {
+    if (data) {
       setTimeout(() => {
         isotope.current = new Isotope(".gallery_zoom", {
           itemSelector: ".item__",
         });
-      }, 3000);
+      }, 1000); // Adjust timeout as needed
     }
-  }, []);
+  }, [data]);
+
   useEffect(() => {
     if (isotope.current) {
       filterKey === "*"
-        ? isotope.current.arrange({ filter: `*` })
+        ? isotope.current.arrange({ filter: "*" })
         : isotope.current.arrange({ filter: `.${filterKey}` });
     }
   }, [filterKey]);
-  const handleFilterKeyChange = (key) => () => {
+
+  const handleFilterKeyChange = (key) => (e) => {
+    e.preventDefault();
     setFilterKey(key);
   };
+
   useEffect(() => {
     tokyo.portfolioHover();
     tokyo.dataImage();
   });
-  const { setPortfolioDetailsModal, modalToggle } = useContext(TokyoContext);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading projects</p>;
+
+  const projects = data.projects.nodes;
+
   return (
     <SectionContainer name={"portfolio"}>
       <div className="container">
@@ -45,7 +100,9 @@ const Portfolio = () => {
                   <li className="mr-[25px] inline-block">
                     <a
                       href="#"
-                      className="current text-[#767676] inline-block font-medium font-montserrat transition-all duration-300 hover:text-black"
+                      className={`${
+                        filterKey === "*" ? "current" : ""
+                      } text-[#767676] inline-block font-medium font-montserrat transition-all duration-300 hover:text-black`}
                       onClick={handleFilterKeyChange("*")}
                     >
                       All
@@ -53,264 +110,78 @@ const Portfolio = () => {
                   </li>
                   <li className="mr-[25px] inline-block">
                     <a
-                      className="text-[#767676] inline-block font-medium font-montserrat transition-all duration-300 hover:text-black"
                       href="#"
-                      onClick={handleFilterKeyChange("react")}
+                      className={`${
+                        filterKey === "React" ? "current" : ""
+                      } text-[#767676] inline-block font-medium font-montserrat transition-all duration-300 hover:text-black`}
+                      onClick={handleFilterKeyChange("React")}
                     >
                       React
                     </a>
                   </li>
                   <li className="mr-[25px] inline-block">
                     <a
-                      className="text-[#767676] inline-block font-medium font-montserrat transition-all duration-300 hover:text-black"
                       href="#"
-                      onClick={handleFilterKeyChange("webApp")}
+                      className={`${
+                        filterKey === "WebApp" ? "current" : ""
+                      } text-[#767676] inline-block font-medium font-montserrat transition-all duration-300 hover:text-black`}
+                      onClick={handleFilterKeyChange("WebApp")}
                     >
                       Web App
                     </a>
                   </li>
-                  <li className="mr-[25px] inline-block">
-                    <a
-                      className="text-[#767676] inline-block font-medium font-montserrat transition-all duration-300 hover:text-black"
-                      href="#"
-                      onClick={handleFilterKeyChange("mobile")}
-                    >
-                      HTML5 App
-                    </a>
-                  </li>
-                  
                 </ul>
               </div>
             </div>
           </div>
           <div className="list_wrapper w-full h-auto clear-both float-left">
             <ul className="portfolio_list gallery_zoom ml-[-40px] list-none">
-              <li className="react webApp mb-[40px] float-left w-1/2 pl-[40px] item__">
-                <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
-                  <div
-                    className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="Netflix Clone Web project"
-                    data-category="check out the netflix"
-                  >
-                    <a
-                      className="popup_info"
-                      href="#"
-                      onClick={() => {
-                        setPortfolioDetailsModal(detailData[7]);
-                        modalToggle(true);
-                      }}
-                    >
-                      <img
-                        className="opacity-0 min-w-full"
-                        src="assets/img/thumbs/1-1.jpg"
-                        alt="image"
-                      />
-                      <div
-                        className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                        data-img-url="assets/img/portfolio/netflix.jpg"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li className="webApp mb-[40px] float-left w-1/2 pl-[40px] item__">
-                <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
-                  <div
-                    className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="World Wonders & UK City Search"
-                    data-category="Check out the wonders"
-                  >
-                    <a
-                      className="popup_info"
-                      href="#"
-                      onClick={() => {
-                        setPortfolioDetailsModal(detailData[0]);
-                        modalToggle(true);
-                      }}
-                    >
-                      <img
-                        className="opacity-0 min-w-full"
-                        src="assets/img/thumbs/1-1.jpg"
-                        alt="image"
-                      />
-                      <div
-                        className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                        data-img-url="assets/img/portfolio/1.jpg"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li className="mobile mb-[40px] float-left w-1/2 pl-[40px] item__">
-                <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
-                  <div
-                    className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="Wallpaper++"
-                    data-category="wallpapers for your phone HTML5"
-                  >
-                    <a
-                      className="popup_info"
-                      href="#"
-                      onClick={() => {
-                        setPortfolioDetailsModal(detailData[2]);
-                        modalToggle(true);
-                      }}
-                    >
-                      <img
-                        className="opacity-0 min-w-full"
-                        src="assets/img/thumbs/1-1.jpg"
-                        alt="image"
-                      />
-                      <div
-                        className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                        data-img-url="assets/img/portfolio/3.jpg"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li className="react webApp mb-[40px] float-left w-1/2 pl-[40px] item__">
-                <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
-                  <div
-                    className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="Weather Web App"
-                    data-category="check out the weather"
-                  >
-                    <a
-                      className="popup_info"
-                      href="#"
-                      onClick={() => {
-                        setPortfolioDetailsModal(detailData[6]);
-                        modalToggle(true);
-                      }}
-                    >
-                      <img
-                        className="opacity-0 min-w-full"
-                        src="assets/img/thumbs/1-1.jpg"
-                        alt="image"
-                      />
-                      <div
-                        className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                        data-img-url="assets/img/portfolio/weather.jpg"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </li>
-             
-              <li className="webApp mb-[40px] float-left w-1/2 pl-[40px] item__">
-                <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
-                  <div
-                    className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="Job listings with filtering"
-                    data-category="Find Your Perfect Job Smart Custom Filters"
-                  >
-                    <a
-                      className="popup_info"
-                      href="#"
-                      onClick={() => {
-                        setPortfolioDetailsModal(detailData[1]);
-                        modalToggle(true);
-                      }}
-                    >
-                      <img
-                        className="opacity-0 min-w-full"
-                        src="assets/img/thumbs/1-1.jpg"
-                        alt="image"
-                      />
-                      <div
-                        className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                        data-img-url="assets/img/portfolio/2.jpg"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </li>
+              {projects.map((project, index) => {
+                const rawSection = project.projects.section || [
+                  "Uncategorized",
+                ];
+                const sectionsArray = Array.isArray(rawSection)
+                  ? rawSection
+                  : [rawSection];
+                const classNames = sectionsArray
+                  .map((sec) => sec.replace(/\s+/g, ""))
+                  .join(" ");
 
-              <li className="webApp mb-[40px] float-left w-1/2 pl-[40px] item__">
-                <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
-                  <div
-                    className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="Rock, Paper, Scissors game"
-                    data-category="Conquer the Classics"
+                return (
+                  <li
+                    key={index}
+                    className={`${classNames} mb-[40px] float-left w-1/2 pl-[40px] item__`}
                   >
-                    <a
-                      className="popup_info"
-                      href="#"
-                      onClick={() => {
-                        setPortfolioDetailsModal(detailData[3]);
-                        modalToggle(true);
-                      }}
-                    >
-                      <img
-                        className="opacity-0 min-w-full"
-                        src="assets/img/thumbs/1-1.jpg"
-                        alt="image"
-                      />
+                    <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
                       <div
-                        className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                        data-img-url="assets/img/portfolio/4.jpg"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li className="react mb-[40px] float-left w-1/2 pl-[40px] item__">
-                <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
-                  <div
-                    className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="Random Quote Generator"
-                    data-category="Discover Infinite Wisdom"
-                  >
-                    <a
-                      className="popup_info"
-                      href="#"
-                      onClick={() => {
-                        setPortfolioDetailsModal(detailData[4]);
-                        modalToggle(true);
-                      }}
-                    >
-                      <img
-                        className="opacity-0 min-w-full"
-                        src="assets/img/thumbs/1-1.jpg"
-                        alt="image"
-                      />
-                      <div
-                        className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                        data-img-url="assets/img/portfolio/5.jpg"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li className="react mb-[40px] float-left w-1/2 pl-[40px] item__">
-                <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
-                  <div
-                    className="entry tokyo_tm_portfolio_animation_wrap"
-                    data-title="OTP Verification Component"
-                    data-category="Securely Authenticate"
-                  >
-                    <a
-                      className="popup_info"
-                      href="#"
-                      onClick={() => {
-                        setPortfolioDetailsModal(detailData[5]);
-                        modalToggle(true);
-                      }}
-                    >
-                      <img
-                        className="opacity-0 min-w-full"
-                        src="assets/img/thumbs/1-1.jpg"
-                        alt="image"
-                      />
-                      <div
-                        className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                        data-img-url="assets/img/portfolio/6.jpg"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </li>
+                        className="entry tokyo_tm_portfolio_animation_wrap"
+                        data-title={project.title}
+                        data-category={project.projects.subheading}
+                      >
+                        <a
+                          className="popup_info"
+                          href="#"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setPortfolioDetailsModal(project);
+                            modalToggle(true);
+                          }}
+                        >
+                          <img
+                            className="opacity-0 min-w-full"
+                            src="assets/img/thumbs/1-1.jpg"
+                            alt={project.title}
+                          />
+                          <div
+                            className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
+                            data-img-url={project.featuredImage.node.sourceUrl}
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -318,4 +189,5 @@ const Portfolio = () => {
     </SectionContainer>
   );
 };
+
 export default Portfolio;
