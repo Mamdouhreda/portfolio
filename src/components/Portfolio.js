@@ -57,43 +57,11 @@ const Portfolio = () => {
 
   useEffect(() => {
     if (data) {
-      tokyo.dataImage();
-
-      // Wait for images to load
-      const images = document.querySelectorAll(".portfolio_list .abs_image");
-      let imagesLoaded = 0;
-      const totalImages = images.length;
-
-      if (totalImages === 0) {
-        // If there are no images, initialize Isotope immediately
-        initializeIsotope();
-      } else {
-        images.forEach((imgDiv) => {
-          const imgUrl = imgDiv.getAttribute("data-img-url");
-          const img = new Image();
-          img.src = imgUrl;
-          img.onload = () => {
-            imagesLoaded++;
-            if (imagesLoaded === totalImages) {
-              // All images have loaded
-              initializeIsotope();
-            }
-          };
-          img.onerror = () => {
-            // Handle image load error
-            imagesLoaded++;
-            if (imagesLoaded === totalImages) {
-              initializeIsotope();
-            }
-          };
+      setTimeout(() => {
+        isotope.current = new Isotope(".gallery_zoom", {
+          itemSelector: ".item__",
         });
-      }
-    }
-
-    function initializeIsotope() {
-      isotope.current = new Isotope(".gallery_zoom", {
-        itemSelector: ".item__",
-      });
+      }, 500); // Adjust timeout as needed
     }
   }, [data]);
 
@@ -112,11 +80,13 @@ const Portfolio = () => {
 
   useEffect(() => {
     tokyo.portfolioHover();
-  }, []);
+    tokyo.dataImage();
+  });
 
+  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading projects</p>;
 
-  const projects = data?.projects?.nodes || [];
+  const projects = data.projects.nodes;
 
   return (
     <SectionContainer name={"portfolio"}>
@@ -166,12 +136,6 @@ const Portfolio = () => {
           </div>
           <div className="list_wrapper w-full h-auto clear-both float-left">
             <ul className="portfolio_list gallery_zoom ml-[-40px] list-none">
-              {loading && (
-                <p className="text-center w-full">Loading projects...</p>
-              )}
-              {!loading && projects.length === 0 && (
-                <p className="text-center w-full">No projects found.</p>
-              )}
               {projects.map((project, index) => {
                 const rawSection = project.projects.section || [
                   "Uncategorized",
