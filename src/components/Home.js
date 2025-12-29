@@ -44,7 +44,7 @@ const Home = () => {
                 Mamdouh <span>Elsheshtawy</span>
               </h3>
               <p className="job font-montserrat font-medium max-w-[450px] mb-[25px]">
-                Front-End Developer specialising in HTML, CSS, JavaScript, and React - Crafting Exceptional Web Experiences
+                Full-stack engineer working across frontend and backend with Go, Next.js, JavaScript, and HTML to deliver end-to-end web experiences.
               </p>
               <div className="social w-full float-left">
                 <ul className="m-0 list-none">
