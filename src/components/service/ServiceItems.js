@@ -44,10 +44,10 @@ const services = [
   },
   {
     id: 6,
-    name: "Cross-Browser Compatibility",
+    name: "Headless WordPress with JavaScript & GraphQL",
     text: [
-      "I ensure that websites I develop are compatible with various web browsers, including Chrome, Firefox, Safari, and Edge, ensuring a consistent experience for all users regardless of their browser preference."
-          ],
+      "I build headless WordPress experiences using JavaScript, and I integrate backend WordPress data through GraphQL to deliver flexible, fast content-driven applications."
+    ],
     image: "assets/img/news/6.jpg",
   },
 ];
