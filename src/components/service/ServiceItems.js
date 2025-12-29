@@ -4,17 +4,17 @@ import { useContext } from "react";
 const services = [
   {
     id: 1,
-    name: "Develop User Interfaces",
+    name: "Build Go Services",
     text: [
-      "I have the skills to design and develop visually appealing and user-friendly interfaces for websites and applications. I use my expertise in HTML, CSS, and JavaScript to structure and style frontend components, ensuring an attractive and intuitive user experience."
+      "I design and build reliable backend services using Go, focusing on clean APIs, efficient concurrency, and maintainable codebases that are ready for production workloads."
       ],
     image: "assets/img/news/1.jpg",
   },
   {
     id: 2,
-    name: "Implement Responsive Design",
+    name: "Kubernetes & Microservices Integration",
     text: [
-      "I excel in implementing responsive design techniques to make websites and applications seamlessly adapt to different devices and screen sizes. I ensure that the interface remains consistent and user-friendly across desktops, tablets, and mobile devices."
+      "I deploy and manage services on Kubernetes, connect microservices with well-defined contracts, and set up reliable service communication, scaling, and observability."
        ],
     image: "assets/img/news/2.jpg",
   },
