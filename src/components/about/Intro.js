@@ -11,24 +11,42 @@ const Intro = () => {
       </div>
       <div className="about_text w-full h-auto clear-both float-left border-solid border-[#DFDFDF] border-b pb-[31px] mb-[30px]">
         <p className="mb-[11px]">
-        Greetings! My name is Mamdouh, and I am a web developer with expertise in HTML, CSS, JavaScript, and React. With a strong background in building websites, I have successfully worked as a freelancer on platforms like Upwork, delivering exceptional websites that help clients solve their problems and achieve their goals.
+          I’m Mamdouh Elsheshtawy, a London-based Full-Stack Engineer with a
+          strong passion for crafting clean, user-focused digital experiences.
+          My journey began in front-end development, where I built responsive,
+          modern interfaces, and has since evolved into full-stack engineering—
+          allowing me to design, build, and scale complete web applications from
+          the ground up.
+        </p>
+        <p className="mb-[11px]">
+          Over the years, I’ve gained hands-on experience working across the
+          entire stack, combining intuitive user interfaces with robust,
+          high-performance back-end systems. I work both as a freelancer and
+          within collaborative teams, helping businesses and individuals
+          transform ideas into reliable, production-ready digital products.
+        </p>
+        <p className="mb-[11px]">
+          I specialise in building performant, maintainable applications using
+          modern technologies. On the front end, I focus on clean architecture,
+          accessibility, and seamless user experiences. On the back end, I work
+          extensively with Go, designing efficient services and APIs,
+          containerising applications with Docker, and deploying and scaling
+          them using Kubernetes. This allows me to deliver solutions that are
+          not only visually engaging, but also resilient, scalable, and ready
+          for real-world traffic.
         </p>
         <p>
-        I take pride in my ability to transform ideas into fully functional platforms. From concept to completion, I am dedicated to creating websites with a unique, outstanding, and contemporary look and feel. I go above and beyond to ensure that the websites I build are not only visually appealing but also optimised for performance and longevity.
-        With my in-depth understanding of web mechanics, I excel at integrating complex functionalities that require minimal maintenance. The websites I develop have the capability to run seamlessly for years, providing clients with a hassle free experience.
-        I am passionate about delivering high quality solutions that exceed client expectations. 
+          I’ve worked with clients across diverse industries, delivering
+          projects that solve real problems and create measurable impact.
+          Whether it’s launching a new product, improving performance, or
+          architecting a scalable system, I take pride in building solutions
+          that meet high technical standards and exceed expectations.
         </p>
       </div>
       <div className="tokyo_tm_short_info w-full h-auto clear-both float-left flex mb-[40px]">
         <div className="left w-1/2 pr-[50px]">
           <div className="tokyo_tm_info w-full h-auto clear-both float-left">
             <ul className="m-0 list-none">
-              <li className="m-0">
-                <span className="min-w-[100px] float-left mr-[10px] font-bold text-black">
-                  Birthday:
-                </span>
-                <span>24.03.1989</span>
-              </li>
               <li className="m-0">
                 <span className="min-w-[100px] float-left mr-[10px] font-bold text-black">
                   Age:
@@ -77,12 +95,6 @@ const Intro = () => {
                   Interest:
                 </span>
                 <span>Playing Basketball</span>
-              </li>
-              <li className="m-0">
-                <span className="min-w-[100px] float-left mr-[10px] font-bold text-black">
-                  Freelance:
-                </span>
-                <span>Available</span>
               </li>
             </ul>
           </div>

@@ -41,7 +41,7 @@ const Sidebar = () => {
         </div>
         <div className="copyright w-full float-left">
           <p className="text-[15px] text-[#999] font-montserrat leading-[25px]">
-            © {new Date().getFullYear()} Mamdouh
+            © 2026 Mamdouh
             <br />
             Created by{" "}
             <a
