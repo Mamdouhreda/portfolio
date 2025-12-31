@@ -137,15 +137,15 @@ const Portfolio = () => {
           <div className="list_wrapper w-full h-auto clear-both float-left">
             <ul className="portfolio_list gallery_zoom ml-[-40px] list-none">
               {projects.map((project, index) => {
-                const rawSection = project.projects.section || [
-                  "Uncategorized",
-                ];
+                const projectMeta = project.projects || {};
+                const rawSection = projectMeta.section || ["Uncategorized"];
                 const sectionsArray = Array.isArray(rawSection)
                   ? rawSection
                   : [rawSection];
                 const classNames = sectionsArray
                   .map((sec) => sec.replace(/\s+/g, ""))
                   .join(" ");
+                const dataCategory = projectMeta.subheading || "";
 
                 return (
                   <li
@@ -156,7 +156,7 @@ const Portfolio = () => {
                       <div
                         className="entry tokyo_tm_portfolio_animation_wrap"
                         data-title={project.title}
-                        data-category={project.projects.subheading}
+                        data-category={dataCategory}
                       >
                         <a
                           className="popup_info"
