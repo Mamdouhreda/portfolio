@@ -5,6 +5,7 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
+  HttpLink,
 } from "@apollo/client";
 
 const graphqlEndpoint =
@@ -12,7 +13,9 @@ const graphqlEndpoint =
 
 // Create an Apollo Client instance
 const client = new ApolloClient({
-  uri: graphqlEndpoint,
+  link: new HttpLink({
+    uri: graphqlEndpoint,
+  }),
   cache: new InMemoryCache(),
 });
 
