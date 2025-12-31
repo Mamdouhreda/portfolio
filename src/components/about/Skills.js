@@ -1,14 +1,12 @@
 const programming = [
-  { id: 1, name: "HTML", value: 85 },
-  { id: 2, name: "CSS", value: 80 },
-  { id: 3, name: "JavaScript", value: 80 },
-  { id: 4, name: "Next Js", value: 70 },
+  { id: 1, name: "Go (Golang)", value: 80 },
+  { id: 2, name: "Kubernetes", value: 80 },
+  { id: 3, name: "Next.js", value: 80 },
+  { id: 4, name: "JavaScript", value: 80 },
   { id: 5, name: "Tailwind CSS", value: 80 },
-  { id: 6, name: "Go (Golang)", value: 80 },
-  { id: 7, name: "TypeScript", value: 75 },
-  { id: 8, name: "Docker", value: 70 },
-  { id: 9, name: "Kubernetes", value: 60 },
-  { id: 10, name: "Final Cut Pro", value: 90 },
+  { id: 6, name: "TypeScript", value: 75 },
+  { id: 7, name: "Docker", value: 70 },
+  { id: 8, name: "Final Cut Pro", value: 90 },
 ];
 const language = [
   { id: 1, name: "English", value: 100 },
@@ -16,7 +14,7 @@ const language = [
 ];
 const Skills = () => {
   return (
-    <div className="tokyo_tm_progressbox w-full h-auto clear-both float-left bg-white pt-[93px] pr-[0px] pb-[100px] pl-[0px]">
+    <div className="tokyo_tm_progressbox w-full h-auto clear-both float-left bg-white pt-[93px] pr-[0px] pb-[40px] pl-[0px]">
       <div className="container">
         <div className="in w-full h-auto clear-both float-left flex">
           <div className="left w-1/2 pr-[50px]">

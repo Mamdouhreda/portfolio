@@ -19,6 +19,7 @@ const About = () => {
         </div>
       </div>
       <Skills />
+      <EducationExperience />
       <KnowledgeInterests />
       <Testimonials />
     </SectionContainer>

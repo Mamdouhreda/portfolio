@@ -23,8 +23,8 @@ const initialState = {
   menus: [
     { id: 1, name: "Home", href: "home" },
     { id: 2, name: "about", href: "about" },
-    { id: 3, name: "What I Do", href: "service" },
     { id: 4, name: "Projects", href: "portfolio" },
+    { id: 3, name: "What I Do", href: "service" },
     { id: 6, name: "contact", href: "contact" },
   ],
 };

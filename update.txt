@@ -1,0 +1,82 @@
+# update-me (instructions for Cursor agent)
+
+## 1) Hero / intro line (rewrite)
+Replace the existing line with this version:
+
+Full-stack engineer working across frontend and backend with Go, Next.js, JavaScript, HTML, and CSS (Tailwind) to deliver end-to-end web experiences.
+
+Acceptance check:
+- CSS and Tailwind are grouped together and read naturally.
+- Wording stays professional and concise.
+
+---
+
+## 2) About page — remove entire Education & Experience sections
+Completely remove the following sections and all their content from the About page:
+
+### Education (remove all)
+- 2014 – 2016 | Oxford University | Master Degree  
+- 2010 – 2014 | Texas University | Bachelor Degree  
+- 2008 – 2010 | Simone College | Associate Degree  
+
+### Experience (remove all)
+- 2018 – Now | Envato Market | Exclusive Author  
+- 2016 – 2018 | RGB Studio | UX Designer  
+- 2012 – 2016 | Innovations Park | Web Designer  
+
+Acceptance check:
+- Education and Experience sections no longer appear anywhere on the site.
+
+---
+
+## 3) Certificates section — updates
+### A) Full-Stack Web Development Bootcamp
+Update the description so it clearly reflects **frontend + backend**, not frontend only.
+
+Use this description (or very close):
+
+Completed a comprehensive full-stack program covering both front-end and back-end development. Built real-world applications using HTML5, CSS3, Flexbox, Grid, Bootstrap, and JavaScript (ES6), while also working across the full development lifecycle including application structure, data flow, and deployment-ready workflows.
+
+Notes:
+- Remove **“Jul–Dec”** completely (no dates shown).
+
+### B) Learning Go (Golang)
+Keep as-is unless already present.
+
+Acceptance check:
+- No dates shown under certificates.
+- Full-stack certificate clearly mentions frontend **and** backend.
+
+---
+
+## 4) Programming Skills section — ordering update
+Ensure **programming languages and tools come first**, then place soft skills at the very end.
+
+### Programming skills (order exactly like this):
+1. Go (Golang) — 80%  
+2. JavaScript — 80%  
+3. Tailwind CSS — 80%  
+4. TypeScript — 75%  
+5. Next.js — 70%  
+6. Docker — 70%  
+7. Kubernetes — 60%  
+8. Final Cut Pro — 90%  
+9. HTML — 85%  
+10. CSS — 80%  
+
+### Soft skills (move to the end, after all programming skills):
+- Problem Solving — 100%  
+- Ownership — 100%  
+- Communication — 100%  
+
+Acceptance check:
+- Soft skills appear **after** all programming/technical skills.
+- Percentages remain unchanged.
+
+---
+
+## Done criteria
+- No leftover Education or Experience content.
+- Certificates read as true full-stack (frontend + backend).
+- Skill ordering and placement exactly match this file.
+- No layout or mobile issues introduced.
