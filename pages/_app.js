@@ -1,11 +1,18 @@
 import TokyoState from "@/src/Context";
 import PreLoader from "@/src/layout/PreLoader";
 import "@/styles/globals.css";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+} from "@apollo/client";
+
+const graphqlEndpoint =
+  process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_ENDPOINT || "/api/graphql";
 
 // Create an Apollo Client instance
 const client = new ApolloClient({
-  uri: process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_ENDPOINT,
+  uri: graphqlEndpoint,
   cache: new InMemoryCache(),
 });
 
