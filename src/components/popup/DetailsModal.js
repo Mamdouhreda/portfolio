@@ -20,7 +20,7 @@ const DetailsModal = () => {
   if (social3) socialLinks.push(social3);
 
   const mainImageUrl =
-    projects.headImage?.node?.sourceUrl || "assets/img/thumbs/4-2.jpg";
+    projects?.headImage?.node?.sourceUrl || "assets/img/thumbs/4-2.jpg";
   //format the date
   const formattedDate = date ? date.substring(0, 10) : "";
   console.log(mainImageUrl);
