@@ -42,6 +42,10 @@ export const tokyo = {
       e = document.querySelector(".cursor-inner"),
       t = document.querySelector(".cursor-outer");
 
+    if (!e || !t) {
+      return;
+    }
+
     function mouseEvent(element) {
       element.addEventListener("mouseenter", function () {
         e.classList.add("cursor-hover"), t.classList.add("cursor-hover");
@@ -135,6 +139,12 @@ export const tokyo = {
       tokyo_tm_portfolio_titles = document.querySelector(
         ".tokyo_tm_portfolio_titles"
       );
+    if (
+      !tokyo_tm_portfolio_titles ||
+      tokyo_tm_portfolio_animation_wrap.length === 0
+    ) {
+      return;
+    }
     tokyo_tm_portfolio_animation_wrap.forEach((element) => {
       element.addEventListener("mousemove", () => {
         let title = element.getAttribute("data-title"),
