@@ -86,7 +86,8 @@ const Portfolio = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading projects</p>;
 
-  const projects = data.projects.nodes;
+  const projects = (data?.projects?.nodes ?? []).filter(Boolean);
+  const fallbackImageUrl = "assets/img/thumbs/1-1.jpg";
 
   return (
     <SectionContainer name={"portfolio"}>
@@ -137,7 +138,7 @@ const Portfolio = () => {
           <div className="list_wrapper w-full h-auto clear-both float-left">
             <ul className="portfolio_list gallery_zoom ml-[-40px] list-none">
               {projects.map((project, index) => {
-                const projectMeta = project.projects || {};
+                const projectMeta = project?.projects || {};
                 const rawSection = projectMeta.section || ["Uncategorized"];
                 const sectionsArray = Array.isArray(rawSection)
                   ? rawSection
@@ -146,6 +147,9 @@ const Portfolio = () => {
                   .map((sec) => sec.replace(/\s+/g, ""))
                   .join(" ");
                 const dataCategory = projectMeta.subheading || "";
+                const featuredImageUrl =
+                  project?.featuredImage?.node?.sourceUrl || fallbackImageUrl;
+                const projectTitle = project?.title || "";
 
                 return (
                   <li
@@ -155,7 +159,7 @@ const Portfolio = () => {
                     <div className="inner w-full h-auto clear-both float-left overflow-hidden relative">
                       <div
                         className="entry tokyo_tm_portfolio_animation_wrap"
-                        data-title={project.title}
+                        data-title={projectTitle}
                         data-category={dataCategory}
                       >
                         <a
@@ -163,18 +167,20 @@ const Portfolio = () => {
                           href="#"
                           onClick={(e) => {
                             e.preventDefault();
-                            setPortfolioDetailsModal(project);
+                            if (project) {
+                              setPortfolioDetailsModal(project);
+                            }
                             modalToggle(true);
                           }}
                         >
                           <img
                             className="opacity-0 min-w-full"
                             src="assets/img/thumbs/1-1.jpg"
-                            alt={project.title}
+                            alt={projectTitle}
                           />
                           <div
                             className="abs_image absolute inset-0 bg-no-repeat bg-cover bg-center transition-all duration-300"
-                            data-img-url={project.featuredImage.node.sourceUrl}
+                            data-img-url={featuredImageUrl}
                           />
                         </a>
                       </div>
