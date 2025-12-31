@@ -19,6 +19,9 @@ export const tokyo = {
           const parser = new DOMParser();
           const xmlDoc = parser.parseFromString(response, "text/html");
           let svg = xmlDoc.querySelector("svg");
+          if (!svg) {
+            return;
+          }
           if (typeof imgID !== "undefined") {
             svg.setAttribute("id", imgID);
           }
