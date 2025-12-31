@@ -49,6 +49,24 @@ export const tokyo = {
       return;
     }
 
+    // Optimize cursor with requestAnimationFrame
+    let mouseX = 0,
+      mouseY = 0,
+      cursorX = 0,
+      cursorY = 0,
+      rafId = null;
+
+    function updateCursor() {
+      // Smooth interpolation for outer cursor - increased speed
+      cursorX += (mouseX - cursorX) * 0.25;
+      cursorY += (mouseY - cursorY) * 0.25;
+
+      t.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+      e.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+
+      rafId = requestAnimationFrame(updateCursor);
+    }
+
     function mouseEvent(element) {
       element.addEventListener("mouseenter", function () {
         e.classList.add("cursor-hover"), t.classList.add("cursor-hover");
@@ -59,56 +77,59 @@ export const tokyo = {
     }
     if (myCursor.length) {
       if (document.body) {
-        let n,
-          i = 0,
-          o = !1;
-        (window.onmousemove = function (s) {
-          // console.log(document.querySelector(this));
-          o ||
-            (t.style.transform =
-              "translate(" + s.clientX + "px, " + s.clientY + "px)"),
-            (e.style.transform =
-              "translate(" + s.clientX + "px, " + s.clientY + "px)"),
-            (n = s.clientY),
-            (i = s.clientX);
-        }),
-          document.body.addEventListener(
-            "mouseenter",
-            // "a,.kura_tm_topbar .trigger, .cursor-pointer",
-            function () {
-              let a = document.querySelectorAll("a"),
-                sliders = document.querySelectorAll(
-                  ".owl-carousel, .swiper-container, .cursor-link"
-                ),
-                slider = document.querySelectorAll(".modal_item");
-              e.classList.add("cursor-inner"), t.classList.add("cursor-outer");
+        // Use throttled mousemove with requestAnimationFrame
+        let ticking = false;
+        window.addEventListener("mousemove", function (s) {
+          mouseX = s.clientX;
+          mouseY = s.clientY;
 
-              for (let i = 0; i < a.length; i++) {
-                const element = a[i];
-                mouseEvent(element);
-              }
-
-              for (let i = 0; i < sliders.length; i++) {
-                const element = sliders[i];
-                element.addEventListener("mouseenter", function () {
-                  e.classList.add("cursor-slider"),
-                    t.classList.add("cursor-slider");
-                });
-                element.addEventListener("mouseleave", function () {
-                  e.classList.remove("cursor-slider"),
-                    t.classList.remove("cursor-slider");
-                });
-              }
-              for (let i = 0; i < slider.length; i++) {
-                const element = slider[i];
-                mouseEvent(element);
-              }
-
-              hamburger && mouseEvent(hamburger);
-              kura_tm_topbar && mouseEvent(kura_tm_topbar);
-              pointer && mouseEvent(pointer);
+          if (!ticking) {
+            if (!rafId) {
+              updateCursor();
             }
-          ),
+            ticking = true;
+            requestAnimationFrame(function () {
+              ticking = false;
+            });
+          }
+        });
+
+        document.body.addEventListener(
+          "mouseenter",
+          function () {
+            let a = document.querySelectorAll("a"),
+              sliders = document.querySelectorAll(
+                ".owl-carousel, .swiper-container, .cursor-link"
+              ),
+              slider = document.querySelectorAll(".modal_item");
+            e.classList.add("cursor-inner"), t.classList.add("cursor-outer");
+
+            for (let i = 0; i < a.length; i++) {
+              const element = a[i];
+              mouseEvent(element);
+            }
+
+            for (let i = 0; i < sliders.length; i++) {
+              const element = sliders[i];
+              element.addEventListener("mouseenter", function () {
+                e.classList.add("cursor-slider"),
+                  t.classList.add("cursor-slider");
+              });
+              element.addEventListener("mouseleave", function () {
+                e.classList.remove("cursor-slider"),
+                  t.classList.remove("cursor-slider");
+              });
+            }
+            for (let i = 0; i < slider.length; i++) {
+              const element = slider[i];
+              mouseEvent(element);
+            }
+
+            hamburger && mouseEvent(hamburger);
+            kura_tm_topbar && mouseEvent(kura_tm_topbar);
+            pointer && mouseEvent(pointer);
+          }
+        ),
           (e.style.visibility = "visible"),
           (t.style.visibility = "visible");
       }
@@ -148,8 +169,25 @@ export const tokyo = {
     ) {
       return;
     }
+
+    // Optimize: use single mousemove listener with throttling
+    let mouseMoveHandler = null;
+    let ticking = false;
+    let hoverCount = 0;
+
+    function updateTitlePosition(e) {
+      if (!ticking) {
+        requestAnimationFrame(function () {
+          tokyo_tm_portfolio_titles.style.left = `${e.clientX - 10}px`;
+          tokyo_tm_portfolio_titles.style.top = `${e.clientY + 25}px`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
     tokyo_tm_portfolio_animation_wrap.forEach((element) => {
-      element.addEventListener("mousemove", () => {
+      element.addEventListener("mouseenter", () => {
         let title = element.getAttribute("data-title"),
           category = element.getAttribute("data-category");
         if (title) {
@@ -157,13 +195,21 @@ export const tokyo = {
           tokyo_tm_portfolio_titles.innerHTML =
             title + '<span class="work__cat">' + category + "</span>";
         }
-        document.addEventListener("mousemove", (e) => {
-          tokyo_tm_portfolio_titles.style.left = `${e.clientX - 10}px`;
-          tokyo_tm_portfolio_titles.style.top = `${e.clientY + 25}px`;
-        });
+        hoverCount++;
+        // Add single mousemove listener only once
+        if (!mouseMoveHandler) {
+          mouseMoveHandler = updateTitlePosition;
+          document.addEventListener("mousemove", mouseMoveHandler);
+        }
       });
       element.addEventListener("mouseleave", () => {
+        hoverCount--;
         tokyo_tm_portfolio_titles.classList.remove("visible");
+        // Remove mousemove listener only when no items are hovered
+        if (hoverCount === 0 && mouseMoveHandler) {
+          document.removeEventListener("mousemove", mouseMoveHandler);
+          mouseMoveHandler = null;
+        }
       });
     });
   },
